@@ -1,0 +1,145 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Call Writer's Guide</TITLE>
+</HEAD>
+<BODY>
+<h1>Call Writer's Guide</h1>
+<p>Writing definitions for <i>Sets in Motion</i> requires a much deeper
+understanding of the inner workings of the program.
+While many calls can be expressed fairly directly, fine tuning the definition
+can improve the appearance of the animation that comes out.
+That often requires an appreciation of what the primitives do, how the basic algorithm works. In short, how the pieces fit together.
+</p>
+<p>
+It became fairly obvious as I was writing the first definitions for the Basic calls
+that phrasing the actions precisely is very important to get the timing right and the
+movements of the dancers anything approaching what actual dancers do.
+This program is a long way from Hollywood quality animation, or does it currently implement anything like natural kinetics.
+Smoothing the various motions described in the definitions is an important long-term
+project that looks challenging as I write this.
+For now, accept my apologies for the silly ways that the cyber dancers gambol about.
+It is a work in progress and there is so much else to be done.
+</p>
+<p>
+At present the most basic functions to create new calls, define starting formations and
+multi-part action sequences is working.
+Navigating through the various windows and entering the necessary data is still very stiff.
+Convenience functions will be added as time permits, but are currently very rudimentary.
+Please give me feedback on missing or awkward operations that you want to perform and 
+that are missing from the interface.
+</p>
+    <p>
+        The largest missing piece is the fact that there currently is no facility for either
+        viewing or modifying formations.&nbsp; This is the top priority item for the user
+        interface and will be added as soon as possible.</p>
+<p>
+The definitions included in the default set include the Callerlab Basic list, as well as a number of
+useful calls from other lists (such as "Roll").
+A definition does not have to be written in terms of other calls from the same list.  
+The definitions also frequently refer to <i>primitives</i> (built-in functions that manipulate the
+dancers and do most of the real work of the program).
+I am certain that many of the calls have bugs, are missing starting formations and could generally 
+be improved.
+I am working to put together a database of sequences that can serve as a test-bed.
+If the program can perform all of the calls and resolve each test sequence, then we
+can have some confidence that the calls and formations in the test sequences
+are correct.
+As more levels are added, concepts will rapidly multiply the combinations of calls and the
+complexity of outcomes.
+It will not be possible to exhaustively test every possible call anyone could write with
+this program.
+Someone has to hand check each questionable case to decide whether the program is in fact
+wrong and, if so, how.
+</p>
+<p>
+All this serves as a plea for anyone who finds the program doing the wrong thing.
+Please, tell me about the mistakes it makes.
+Otherwise I may never fix it, and if you find something wrong, odds are good that others
+are seeing it too.
+I want this program to be as good a calling and dancing assistant as possible.
+</p>
+    <h2>
+        General Architecture</h2>
+    <p>
+        The definition of a call is written in terms of a choice amongst several sequences
+        of actions.&nbsp; The choosing process involves matching patterns of dancers and
+        applying the sequence of actions that are assigned to that pattern.&nbsp; These
+        actions are written as other calls.&nbsp; These other calls, in turn, are written
+        in terms of still other calls, and so on.&nbsp; This process only stops when you
+        reach one of the forty or so <em>primitives</em>.&nbsp; A primitive is a function
+        that carries out some very specific movement or grouping of dancers.&nbsp;
+    </p>
+    <p>
+        Calling a primitive is done by writing a primitive in the action of a call definition
+        in any place where it would be valid to write a call.&nbsp; Thus, the whole contents
+        of an action may be a single primitive.&nbsp; You may also apply any of the rules
+        for composing calls.&nbsp; So, for example, you could say "heads &lt;&lt;some primitive&gt;&gt;"
+        if you just wanted the heads to perform its action.&nbsp; Unlike calls, which use
+        a loose syntax that you can extend, primitives use a relatively rigid and unambiguous
+        syntax akin to that of algebra or a programming language.</p>
+    <p>
+        The model implied by the operations of the primitives is a highly abstracted and
+        simplified view of the dance floor.&nbsp; For example, the primitives do not have
+        a way to describing the absolute location of a dancer.&nbsp; Indeed, about the only absolute
+        location that can be described in a primitive is the center of the set (<span style="font-family: monospace">$center</span>).&nbsp; Dancer motions are
+        described in terms of each dancer's current location and facing direction.</p>
+    <p>
+        The primitives are implemented by the C++ code of the program.&nbsp; At this level,
+        the exact position and orientation of dancers is maintained and manipulated.&nbsp;
+        Some of the work that is done at this level, while theoretically of no interest
+        to anyone writing primitives, actually helps explain how things happen.</p>
+    <p>
+        In particular, the Dancers class is a crucial data structure used extensively in
+        the dance resolution code.&nbsp; An instance of the Dancers class includes a set
+        of 0 or more dancers in a specific configuration on the floor.&nbsp; The class implements
+        a set of operations that correspond closely to many of the primitives.&nbsp; One
+        of the essential abstractions represented in the Dancers class is the notion of
+        a 2 dimensional space in which the dancers are located.&nbsp; Look at the essay
+        on <a href=geometry.html>Geometries, Rotations and Coordinate Systems</a> for
+        a more complete explanation of how dancers are arranged by the program.</p>
+    <h2>
+        The C++ Code</h2>
+    <p>
+        The C++ code of the program currently contains 95 classes specific to the dancing
+        code.&nbsp; There are many more classes involved in infrastructure code like the
+        display widgets, collection classes, etc.&nbsp; Of the dance 95 classes, they break down
+        more or less as follows:</p>
+    <ul>
+        <li>Unit tests.&nbsp; 4 classes.&nbsp; Unit tests are instances of unit test classes.</li>
+        <li>UI edit commands.&nbsp; 22 classes.&nbsp; Each individual edit is an instance of
+            a class that has an undo and redo operation.</li>
+        <li>UI display classes.&nbsp; 14 classes.&nbsp; These implement the various specific
+            sub-windows of the UI.</li>
+        <li>File data structures.&nbsp; 9 classes.&nbsp; The various definitions, sequences
+            and other data stored in files.&nbsp; These are generally the objects modified by
+            the UI edit commands above.</li>
+        <li>Parsing classes.&nbsp; 22 classes.&nbsp; These classes define support information
+            for the parsers or else the information parsed.&nbsp; This includes formation parsing
+            as well as the syntax of calls and primitives.</li>
+        <li>Dance execution classes.&nbsp; 24 classes.&nbsp; These classes describe the data
+            constructed to describe what calls are being performed, the dancers in them and
+            the dancer motions generated by them.&nbsp; This data is the basis for what appears
+            in the Call Analysis and Animator views.</li></ul>
+    <p>
+        The count of classes is somewhat misleading.&nbsp; Just one dance execution class
+        (Dancers), which is responsible for implementing most of the primitive dancer motions,
+        contains 18% of all the application-specific C++ code!&nbsp; For comparison, all
+        36 UI classes together contain just 20% of this C++ code.</p>
+    <p>
+        &nbsp;</p>
+    <h2>
+        Various Topics</h2>
+    <p>
+        The following topics address various issues with no particular structure yet.&nbsp;
+        This section is very early in construction and is far from complete enough.&nbsp;
+        I do not expect anyone to go to the trouble of trying to write complex call definitions
+        yet.&nbsp; Eventually I want to produce a fairly robust set of documents describing
+        the program's internals that should allow anyone with the desire and patience to
+        learn it.</p>
+<ul>
+    <li><a href=geometry.html>Geometries, Rotations and Coordinate Systems</a></li>
+    <li><a href=breathing.html>Breathing</a></li>
+    </ul>
+</BODY>
+</HTML>

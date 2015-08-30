@@ -1,0 +1,291 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Caller's Guide</TITLE>
+</HEAD>
+<BODY>
+<h1>Caller's Guide</h1>
+<p>
+This section addresses how a caller might use <i>Sets in Motion</i> to create new material.
+You should refer to the <a href="user_guide.html">User's Guide</a> for more general
+    information on using the program's interface.&nbsp; Included in this section are
+    detailed notes on how this program implements different calls, rules and concepts
+    to produce its results.&nbsp; It is not focused on the internals of the program,
+    for which you should refer to the <a href="definition_guide.html">Call Writer's Guide</a>,
+    but rather on the ways in which square dancing as people do it differs from what
+    this program requires.</p>
+    <h2>
+        <em>Sets in Motion</em> Calls and Callerlab Calls</h2>
+    <p>
+        Callerlab maintains levels of calls and publishes definitions that are organized
+        in a particular way.&nbsp; <em>Sets in Motion</em> has restrictions imposed by how
+        the definitions have to be written that means that each Callerlab call may need
+        more than one program definition.&nbsp; Sometimes Callerlab will group quite distinct
+        calls (such as "Weave the Ring" and "Right and Left Grand") and sometimes the alternative
+        phrases for a Callerlab call are just outside what can be expressed in the program.</p>
+    <p>
+        For example, one constraint of <em>Sets in Motion</em> is that if your call's production
+        phrase includes a built-in sub-phrase (such as ANYONE or ANYTHING), then every phrase
+        entered for that call has to have the same sub-phrase in it.&nbsp; Also, if more
+        than one built-in sub-phrase appears, then each production has to have the sub-phrases
+        appear in the same order.&nbsp; Definitions must refer to these built-ins by their
+        number within the phrase, so they always have to appear in the same order.</p>
+    <p>
+        For example, the call "ANYONE in, ANYONE sashay" can also be said as "ANYONE center,
+        ANYONE sashay".&nbsp; In this call, it happens that the two built-ins are the same
+        kind (ANYONE).&nbsp; In this case, the first ANYONE names the people to move in
+        and back, while
+        the second names the people sliding left.&nbsp; If you wanted to also write "ANYONE
+        sashay as ANYONE&nbsp; in" you would have to create a second definition, because
+        in this phrasing the people being named are doing the opposite motion from the original
+        call.</p>
+    <p>
+        A common practice in calls with numbers of fractions is to have a default value
+        when the number is omitted.&nbsp; For example, "Square Thru" means "Square Thru
+        4" and "Split Counter-rotate" means "Split Counter-rotate 1/4".&nbsp; <em>Sets in Motion</em>
+        must use a separate definition to define the version of the call without the number
+        and the one with the number.&nbsp; The program just doesn't give you a way to describe
+        'optional' bits of a phrase directly.</p>
+    <p>
+        Similarly, calls like "Promenade 1/2" and "Promenade Home" have to be written as
+        separate definitions, because there is no way to describe something that can be
+        either a number or a word.&nbsp; These have to be entered separately, even though
+        much of the rest of the definition information is quite similar.</p>
+    <h2>
+        Phrasing</h2>
+    <p>
+        Think of <em>Sets in Motion</em> as a non-English speaking dancer.&nbsp; The only
+        English words it knows are the specific phrases recorded in its definitions database,
+        plus a handful of built-in supporting terms to identify dancers (e.g. "heads", "boys"),
+        directions (e.g. "left", "out") and such.&nbsp; You can discover the phrases the
+        program recognizes by looking at each definition for the alternate phrases for each
+        call.</p>
+    <p>
+        You can use any combination of upper- and lower-case letters you like.&nbsp; <em>Sets
+            in Motion</em> treats all upper- and lower-case letters as the same.&nbsp; If
+        you want to capitalize the first word as if the call were a sentence, go ahead.&nbsp;
+        If you want to capitalize some whole words because it helps you read the call out
+        later on, do that too.</p>
+    <p>
+        The program is also very forgiving about punctuation.&nbsp; You can use any amount
+        of commas, periods, parentheses, semi-colons and so on in writing the calls of a
+        sequence. &nbsp;Almost all special characters are ignored there.&nbsp; The lone
+        exception is the dash.&nbsp; A dash appearing in the middle of a word is kept and
+        treated just like another letter in the word.&nbsp; Thus "u-turn" has to be written
+        with the dash.&nbsp; In definitions, you are much more restricted.&nbsp; In general,
+        inside a definition, you should avoid using 'decorative' punctuation because the
+        program may interpret the characters as part of an expression.&nbsp; See the <a href="definition_guide.html">
+            Call Writer's Guide</a> for more information about expressions in definitions.</p>
+    <p>
+        White space is only needed to separate words.&nbsp; You can put in extra spaces
+        if you like, or use a single space just as well.</p>
+    <p>
+        In the future, <em>Sets in Motion</em> will make it easy to type just a few letters
+        of a call and then pick from a list of matching phrases.</p>
+    <h2>
+        The Structure and Limitations of a Definition</h2>
+    <p>
+        Every call uses a common structure in a <em>Sets in Motion</em> definition.&nbsp;
+        This makes it possible for concepts like "as couples" to be written without having
+        to work out by hand what each combination of concept and call will do.&nbsp; Wherever
+        possible the code used to implement a concept simply analyzes the structure of the
+        call's definition without special knowledge of this call or that.&nbsp; Any information
+        a concept needs to know about a call, therefore, has to be available in the structure
+        the program defines.</p>
+    <p>
+        Calls may have zero or more starting formations.&nbsp; Each starting formation is
+        considered a <em>variation</em> of the call.&nbsp; A call may also have a <em>default
+            variation</em> which has no specific starting formation.</p>
+    <p>
+        Each variation, in turn, consists of one or more parts.&nbsp; Wherever possible,
+        the parts are taken directly from the Callerlab definition.&nbsp; For example, when
+        we talk about fractionalizing calls into parts, it is these parts that are referred
+        to.</p>
+    <p>
+        Within each part, the dancer's movements are broken down into individual actions.&nbsp;
+        These actions can be other calls ("pass the ocean" is "pass thru; face in; step
+        to a wave") or coded descriptions of very specific dancer movements ("box the gnat"
+        is written as "facing dancers step diagnoally forward and to the left 1/2 position;
+        boys walk forward around their inside hand 1/4 turn and turn their body an additional
+        quarter while girls walk forward around their inside hand 1/4 turn and turn their
+        body the other direction for 3/4 of a turn").</p>
+    <p>
+        It is not currently possible to define a call whose final formation depends on the
+        next call.&nbsp; As a result, some calls are not possible to implement according
+        to their strict definition.&nbsp; One such example is "swing your partner".&nbsp;
+        For those calls, <em>Sets in Motion</em> will not allow you to use the calls as
+        flexibly as in real life.&nbsp; The program will pick one specific ending formation
+        and you may have to add a call or two (lets hope not more than that) to reposition
+        the dancers where they would be to do the call you really want them to do.&nbsp;
+        For example, <em>Sets in Motion</em> will end "swing your partner" in promenade
+        position.&nbsp; If you want to follow this with "circle left", you wouldn't have
+        to say anything else at a real dance.&nbsp; In the program, you would have to say
+        something like "promenade 0/4" to get the dancers to face in.&nbsp; Then you could
+        write "circle left".</p>
+    <h2>
+        The Dollar Sign and Underlines</h2>
+    <p>
+        You will notice that many of the words that appear in the definitions begin with
+        a dollar sign.&nbsp; Don't be intimidated by this.&nbsp; A dollar sign just means
+        the word has special meaning to the program.&nbsp; Since you can't use a dollar-sign
+        in a call's phrasing, those words can't possibly interefere with any call anyone
+        might ever want to define.&nbsp; Sometimes, I use an underline in the same way.&nbsp;
+        The program treats all strings of letters, dollar-signs and underline characters
+        the same way.&nbsp; So something like "$original_partner" is just a single word
+        to the program and happens to be one that can never legitimately appear in the phrasing
+        of a call in a sequence.&nbsp; If the program sees this word in a definition, it knows it must
+        have the special meaning for the word (in this case the direction from a dancer
+        to their original partner).</p>
+    <h2>
+        The General Algorithm</h2>
+    <p>
+        When you enter a call in <em>Sets in Motion</em>, the program goes through several
+        stages of analysis.&nbsp;
+    </p>
+    <p>
+        First, your words are parsed and matched against the definitions database to find
+        the corresponding definitions and sub-phrases that you used.&nbsp; If what you typed
+        does not correspond to anything in the database, your call is considered in Error.&nbsp;
+        At this stage of the analysis, the current position of the dancers does not matter.&nbsp;
+        The program is only concerned with whether your words fit the known syntax.&nbsp;
+        At this stage, all synonyms are translated to their expanded meanings.&nbsp; Also,
+        if the call is defined for a specific integer or fraction (such as "Sweep 1/4"),
+        the digits must match exactly.&nbsp; Thus, "Sweep 1/4" is not the same as "Sweep
+        2/8".&nbsp; If you want to use gimmick phrases like that when you read the calls
+        out, you can, of course.&nbsp; You can also add definitions of your own if there
+        is some wording you prefer over the choices offered in the default database.</p>
+    <p>
+        Second, once the syntax of your words have been parsed and the calls identified,
+        the program will check each variation in the definition starting at the top.&nbsp;
+        If the variation has one or more formations associated, then all the dancers are
+        checked against each specific formation.&nbsp; If no formations are listed for a
+        particular variation, then that variation is selected.&nbsp; If no variation is
+        selected that matches all of the available dancers, the program tries to match subsets
+        of the dancers to the call.</p>
+    <p>
+        For example, suppose you call "right and left thru" with facing lines.&nbsp; The
+        call is a 4 dancer call, so it will not match against an 8 dancer formation.&nbsp;
+        Instead, the program must find subsets of 4 dancers each to do the call.&nbsp; In
+        this example, each set of facing couples should do the call.</p>
+    <p>
+        <em>Sets in Motion</em> will try every possible combination of dancers looking for
+        the best fit to the given call.&nbsp; If more than one formation is listed for a
+        call, all possible formations are checked.&nbsp; If some formations have more dancers
+        than others, the formations with the most dancers are checked first, followed by
+        the formations with the next most, and so on until the smallest formations are checked.&nbsp;
+        If the program can find multiple different groupings of dancers or if it can't find
+        any grouping that uses all available dancers, the call Fails.</p>
+    <p>
+        It is common practice to omit qualifiers on calls when they are redundant, so many
+        callers will say "swing thru" when dancers are in a quarter tag formation, even
+        though only the centers are in a wave to perform the call.&nbsp; <em>Sets in Motion</em>
+        requires that you use some sort of qualifier such as "centers swing thru" (or any
+        designation that identifies just the dancers in the wave), or the more general "those
+        who can swing thru".&nbsp; In the case of "swing thru" few dancers get confused
+        about who should do the call in this situation, but if the call had been "linear
+        cycle", for example, many end dancers will reflexively start to do the call before
+        they realize that they can't.&nbsp; Rather than include an extensive database of
+        acceptable usages, I have opted to require proper qualification of all your calls.&nbsp;
+        When you read them out, you can use your own judgement about how many of the written
+        words you need or want to include.</p>
+    <p>
+        Once the program has picked the variation(s) needed to match your words to the dancers,
+        it begins applying the parts of each selected variation. &nbsp;Of course, since
+        separate groupings of dancers can be in different starting formations, it is possible
+        that a single call may have quite different affects on different dancers.&nbsp; Each part consists
+        of one or more actions, which are themselves just more calls.&nbsp; If any action
+        in any part of any selected variation fails for any reason, then the whole call
+        fails and the dancers stay in their original positions.&nbsp; Note that in the real
+        world, real dancers often forget where they start and end up in a muddle.&nbsp;
+        You therefore shouldn't read a sequence that has failed calls in it for this reason
+        (unless you remember to skip the failed calls).</p>
+    <p>
+        When all the steps of the call have been analyzed, the program records the final
+        position of the dancers and collects all the motion information together and makes
+        it ready to be animated.&nbsp; All of the internal structures built up to perform
+        the call are preserved as well to construct the Call Analysis pages later on as
+        you navigate through them.</p>
+    <h2>
+        Resolved Sequences</h2>
+    <p>
+        Note that when the program detects that you have returned the dancers to their home
+        positions, it will mark the last line of the sequence with a greyed-out "home".&nbsp;
+        You won't be able to type in any more calls in that sequence.&nbsp; Once home, most
+        dancers would consider the sequence over and any more calls would be interpreted
+        as the beginning of a new sequence anyway.&nbsp; The program just makes you aware
+        that you're done.&nbsp; If you didn't intend to have the dancers home at the point,
+        just go back and change one of the preceding calls so they no longer get there and
+        you can continue writing more calls.&nbsp; Note that having dancers <em>near</em>
+        home or even on home spots but facing different directions is not considered home.</p>
+    <p>
+        In the future, the program will have a database that offers you some common resolutions
+        when the formation is close to be resolved.&nbsp; For now, you have to write each
+        call to get your dancers home.</p>
+    <h2>
+    </h2>
+    <h2>
+        Dancer Designations</h2>
+    <p>
+        A complete editor is included to allow for the defintiion of complex phrases describing
+        dancers.&nbsp; Not including a couple of internal terms used in definitions nearly
+        two dozen different phrases are included in the Definitions file.</p>
+    <p><div style="float:left;padding:.25in"><img src=dancer_des.png /></div></p>
+    <p>
+        The chart at left shows the complete list of designators recognized by <em>Sets in Motion.&nbsp;
+        </em>This list is by no means exhaustive and you will note that there is still no
+        way to describe asymmetric groups (you cannot name a specific couple, for example).&nbsp;
+        Future releases will expand on this list.</p>
+    <p>
+        Note that combining phrases such as "boy ANYONE" or "head ANYONE" can be strung
+        together arbitrarily.&nbsp; The program will allow you to write seeming nonsense,
+        such as "head lead trailing girl boy end end center all" and not complain about
+        your grammar.&nbsp; This example, will of course never identify anyone, so whatever
+        call you give should fail because of that.</p>
+    <p>
+        These terms should identify dancers according to your understanding of the terms.&nbsp;
+        The terms "beaus" and "belles" should be restricted to Advanced-1 and above.&nbsp;
+        At a lower level, the Sequence Editor will not include these terms in any lists
+        of suggested completions and you will get a specific off-level error when you type
+        them in anyway.</p>
+    <p>
+        The term "others" when used in the second call of an "ANYTHING while ANYCALL" call
+        refer to any of the dancers not performing the first call.&nbsp; Otherwise, this
+        should refer to the last inactive dancers from the previous call (the opposite of
+        the last active dancers).</p>
+    <p>
+        $facing_across, cross_facing ANYONE and $facing_along are useful in definitions
+        to refer to dancers who are facing across or along the major axis of the formatioon.&nbsp;
+        If the formation is square, these phrases designate no one.</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+    </p>
+    <h2>
+        The Calls</h2>
+    <p>
+        The following topic areas are organized by the Callerlab list where the corresponding calls
+        are found.&nbsp; The Directional Calls section refers to some definitions that appear
+        as calls in the <em>Sets in Motion</em> database, but have no corresponding call
+        in any recognized list or which are danced as calls but which do not appear in a
+        Callerlab level.</p>
+    <ul>
+        <li><a href="calls_general.html">Directional Calls</a> </li>
+        <li><a href="calls_basic.html">Basic</a> </li>
+        <li><a href="calls_mainstream.html">Mainstream</a> </li>
+        <li><a href="calls_plus.html">Plus</a> </li>
+        <li><a href="call_a1.html">Advanced-1</a> </li>
+        <li>Advanced-2</li>
+        <li>Challenge-1</li>
+    </ul>
+</BODY>
+</HTML>

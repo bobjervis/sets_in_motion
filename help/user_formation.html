@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Formation Editor</TITLE>
+</HEAD>
+<BODY>
+<h1>Formation Editor</h1>
+    <p>
+        The sub-window that you use to view or modify a formation is called a Formation
+        Editor.</p>
+    <p>
+        <img align=right src=formation_editor_locked.png />At right you can see a sample
+        image of the 'diamond' formation loaded in a Formation Editor.&nbsp; Note that the
+        text fields at top are greyed out to indicate that the editing of this definitions
+        file is locked to prevent accidental editing.</p>
+    <p>
+        The name can be any valid, single word (with underlines and dollar signs, but no
+        digits).&nbsp; This name must match that used in the pattern strings used in call
+        definitions.</p>
+    <p>
+        If a formation is specific to rings, the Geometry field will say Ring.&nbsp; If
+        blank, the formation applies in any geometry.&nbsp; See the <a href="definition_guide.html">
+            Call Writer's Guide</a> for more information about geometries to fully understand
+        the setting of this field.</p>
+    <p>
+        The bulk of the editor consists of a field of small crosses at regular intervals.&nbsp;
+        As you resize the window, you'll notice that like the Animator, the spacing changes.&nbsp;
+        Each cross represents a half-spot in an imaginary grid.</p>
+    <p>
+        When you create a new formation, you will be given a completely empty field to work
+        in.&nbsp; If you click on any of the crosses, it will turn into a green circle.&nbsp;
+        Any colored circle represents a dancer.</p>
+    <p>
+        In the 'diamond' formation here, the additional decorations and inscribed letters
+        include more information about the specific dancer.</p>
+    <p>
+        Formations are always rotated as needed to match dancers on the floor.&nbsp; There
+        is no way to specify where the caller is standing.&nbsp; Even though formations
+        are drawn like a full square in the Animator, the caller could be standing in any
+        direction, and if the whole square is at an odd angle to the caller, the formation
+        could match there as well.</p>
+    <p>
+        Also, an empty spot in the formation editor can be either empty on the floor or
+        occupied.&nbsp; Currently, there is no way to specify in a formation with fewer
+        than 8 dancers that any particular spot <strong>must</strong> be empty.&nbsp; If
+        there are more dancers than the formation indicates, those dancers could be anywhere
+        on the floor.</p>
+    <p>
+        <img align=left src=formation_menu.png />If you right-click on an empty grid spot, you'll see this menu.&nbsp; Right-clicking on a dancer spot gives you basically
+        the same menu, but with one additional option at the bottom "Make this spot empty"
+        (and leaving out the option that would make the dancer be what they already are,
+        for example omitting "Make this spot an active dancer" for a spot that it already
+        an active dancer).</p>
+    <p>
+        Currently, Inactive dancers are not used in any formations.&nbsp; While you can
+        select this option, the formation matching code will not do anything useful.</p>
+    <p>
+        If you select 'active dancer', you get an empty green circle just as you do by left-clicking
+        on an empty spot.&nbsp; This could be any dancer on the floor.</p>
+    <p>
+        By choosing Boy or Girl dancers in the formation, the color of the circle changes
+        to the selected gender and you see a B or G, respectively, inside the circle.&nbsp;
+        Such a spot in the formation would only match the corresponding gendered dancer.&nbsp;
+        Look at the 'normal_couple' formation for an example of genedered formation spots.</p>
+    <p>
+        Designated and non-designated dancers are used commonly in ANYONE calls when the
+        designated dancers must be standing in a particular spot within the formation to
+        match.&nbsp; If you selected either designated or non-designated active dancers
+        for spots in the formation, all dancer spots should probably be one or the other.
+        &nbsp;When you write a pattern as a formation name followed by an ANYONE phrase
+        (usually a variable mentioned in the call definition's phrases), that pattern says
+        to match the named formation using the designated dancers.&nbsp; Look at the definition
+        of "ANYONE chain" for an example of such a pattern.&nbsp; When matching the pattern,
+        the designated dancers must be standing on spots in the formation marked with a
+        D and other active dancers must be standing on the non-designated spots (marked
+        by an N).</p>
+    <p>
+        Center, end, very center and very end dancer markings are used to indicate which
+        positions in a formation can be designated using the corresponding phrases.&nbsp;
+        All the currently active dancers must match the entire formation in order to be
+        applied.</p>
+    <p>
+        If you use a pattern that has center/end in a definition, the dancers do not have
+        to be designated in any way by the call.&nbsp; For call matching, center/end markings
+        are ignored and all dancers are merely considered 'active'.&nbsp; The center and
+        end markings are only used to decide which dancers are designated by the corresponding
+        phrases.&nbsp; There is currenlty no way to specify 'center 6/end 2' or related
+        combinations.</p>
+    <p>
+        If you use a pattern that has designated/non-designated dancers without a parenthesized
+        ANYONE phrase, the formation is matched by treating all such dancers as merely 'active'.</p>
+    <p>
+        The bumps on the circles in the formation editor indicate possible facing directions.&nbsp;
+        If the circle has no bumps at all, the dancer could be facing in any direction.&nbsp;
+        If two bumps appear, the dancer could be facing either direction that has a bump.&nbsp;
+        If only one bump appears, the dancer can only face that direction.</p>
+    <p>
+        You set the direction indicators after you first make a spot into a dancer spot.&nbsp;
+        They will always start with any facing direction allowed.&nbsp; As you move your
+        mouse over the dancer, you will notice that around the edges, the cursor changes
+        to a cross shape.&nbsp; Clicking there will set the dancer to face that one specific
+        direction.&nbsp; Clicking again will return the dancer to allow any facing.</p>
+    <p>
+        If you move the cursor to the opposite side of the circle when there is already
+        a single bump, the cursor will change into a appropriately directed double-arrow.&nbsp;
+        Clicking there will change the dancer to allow either facing direction.&nbsp; Clicking
+        again on the same spot will switch the dancer back to single-facing.</p>
+    <p>
+        There is no way to specify that dancers could be facing any of three different directions.&nbsp;
+        If you move the mouse cursor over one of the other sides of a two-faced dancer,
+        the mouse cursor will change to a 'disallowed' circle with a bar through it symbol.</p>
+    <p>
+        Note that the mouse cursor will also change to a 'disallowed' symbol when you move
+        over an empty spot that it too close to an existing dancer spot.&nbsp; In general,
+        dancers can never be only a half-spot apart, so you are not allowed to create a
+        formation with dancers spaced that way.&nbsp; You must first remove some existing
+        dancers before you can place a dancer on such a location.</p>
+    <p>
+        &nbsp;</p>
+</BODY>
+</HTML>

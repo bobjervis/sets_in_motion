@@ -1,0 +1,149 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Definition Editor</TITLE>
+</HEAD>
+<BODY>
+<h1>Definition Editor</h1>
+    <p>
+        The sub-window that you use to view or edit a specific definition in detail is called
+        a Definition Editor.</p>
+    <p><img align=right src=definition_editor_locked.png />At right you can see a sample
+        definition loaded in the editor, in this case the definition for "swing thru". &nbsp;The
+        top section includes information global to the whole definition.&nbsp; Enclosed
+        in a grey box is each <em>variation</em> or <em>variant</em> of the call.</p>
+    <p>
+        Notice that in the view on the right, the whole view is grey (except the formation
+        diagrams).&nbsp; Even the areas
+        that look like text fields are greyed out.&nbsp; This indicates that the definitions
+        file this is part of (the default Definitions in this case) is currntly locked to
+        prevent edits.&nbsp; This is a simple precaution to avoid accidentally making changes
+        to the definitions when all you really want to do is browse through the information.&nbsp;
+        You can always unlock the file by either right-clicking on the tab for the current
+        Definition Editor or its Grammar Editor and selecting the "Unlock for editing" menu
+        item.</p>
+    <p>
+        The top field in the editor is a 'Name' field.&nbsp; This name is strictly for use
+        in other definitions.&nbsp; Most definitions do not have a name defined.&nbsp; An
+        example of a call with a Name is "box the gnat" which has the unsurprising name
+        of 'box_the_gnat'.&nbsp; Look at the definition for "ANYONE move_in_and ANYTHING"
+        to see how this name is used.&nbsp; Very few call definitions specifically name
+        another call in them, which is why you will probably never have to assign a name
+        yourself.</p>
+    <p>
+        The Created and Modified lines are never editable.&nbsp; They record the moment
+        when you first defined the call and the time you last modified it.&nbsp; If you
+        edit a call, you will see the Modified time change automatically as you make changes.&nbsp;
+        Note that if you use undo/redo, the modified time will be the time you first made
+        the change, not the last undo or redo operation.</p>
+    <p>
+        The Level field defines the lowest level at which you can use this call.&nbsp; You
+        may use any call in a definition, but when composing calls in a sequence, you may
+        only mention calls at or below the level you have selected for the sequence.</p>
+    <p>
+        Note that if you mark a call with a blank level or a level of None, then the call
+        can be used in any sequence at all.&nbsp; Note that if the level is reported as
+        Error in red letters, the contents of the file was some unrecognized string.&nbsp;
+        This may be due to some change in the list of level names for the program, or else
+        due to going in and manually changing the definitions file outside of <em>Sets in Motion</em>
+        (such as with Notepad).</p>
+    <p>
+        The call "swing thru" has only one phrase listed.&nbsp; Any given definition can
+        have as many alternate phrases as you like included here.&nbsp; The only requirement
+        is that each phrase if it has any at all, must include the same built-in terms and
+        they must appear in the same order.&nbsp; This call happens to be one that has only
+        literal words in its phrase.</p>
+    <p>
+        Each of the large boxes under the phrases is a variant for this call.&nbsp; Which
+        variant is selected for a given use of a call depends on the Patterns, Level and
+        Precedence fields defined for that variant.</p>
+    <p>
+        For most calls, each variant leaves the Level field blank.&nbsp; An exception, for
+        example, is Extend which has several different starting formations, some of which
+        can only be used at the Plus level or above.</p>
+    <p>
+        The Precedence field is usually left to read 'Normal'.&nbsp; So far, the only exception
+        to the is one of the variants of "trade".&nbsp; This field matters when you use
+        a call that is defined for groups of fewer than 8 dancers.&nbsp; Normally, <em>Sets
+            in Motion</em> applies each of the patterns for the variants to the whole set
+        of dancers to find the 'best' match.&nbsp; If the program can find multiple different
+        groupings of dancers that could apply it uses the 'best' grouping.&nbsp; If the
+        groupings are equally good, the program gives up.&nbsp; One grouping will be better
+        than another if it includes more dancers (this applies for a 'those who can' situation),
+        or if they include the same number of dancers but with fewer distinct groups.&nbsp;
+        Thus a call that is defined for boxes and for couples will prefer a grouping that
+        puts dancers into a box rather than two couples.&nbsp; In the rare circumstance
+        ("trade" in lines of four, for example) where a call can be applied with multiple
+        groupings that include the same number of dancers and the same number of groups
+        will the Precedence field be examined.&nbsp; For "trade" in a line of four, the
+        trade prefers to group adjacent pairs of dancers to non-adjacent pairs.</p>
+    <p>
+        It is unlikely that you will need to set Precedence to 'Preferred' and unless your
+        call has the kind of combination of starting formations that "trade" has, setting
+        "Preferred" will have no affect on the program.</p>
+    <p>
+        Each line of Patterns fields generally names a formation.&nbsp; For some calls and
+        some patterns, the formation name is followed by a variable enclosed in parentheses
+        (see "ANYONE cross run" for an example).&nbsp; These patterns are for calls that
+        include an ANYONE term in their phrase and that ANYONE names some of the dancers
+        who will perform the call (the formation will have to indicate which dancers are
+        those designated by the ANYONE variable and which are not).</p>
+    <p>
+        At the bottom of each variant is a set of one or more Parts, each enclosed in a
+        smaller box with a thin border.&nbsp; When a call is fractionalized, what fractions
+        you can name depends on the number of Parts defined for the call.&nbsp; In the case
+        of "swing thru" above, each variant has two Parts.</p>
+    <p>
+        The Repeat field in a Part is normally blank.&nbsp; If it is blank, the Part is
+        repeated eaxctly once per call.&nbsp; Some calls, such as "square thru INTEGER",
+        use the Repeat field to vary the number of parts based on a number mentioned in
+        the call.</p>
+    <p>
+        Finally, the Actions fields of each Part define that actual steps dancers should
+        take to perform the call.&nbsp; As the example "swing thru" above shows, an action
+        can be another call.&nbsp; You will notice that some definitions have actions that
+        name the same call that is being defined.&nbsp; If you look closely at those examples,
+        what is happening is that some other action has made some change to the dancer formation
+        so that a different variant of the call will be invoked by the action.</p>
+    <p>
+        If one of your actions ends up invoking the same variant again, the program will
+        catch this and mark a use of that call as an error.</p>
+    <p>
+        Notice that the first action of the 'facing_couples' variant of "swing thru" is
+        'beaus $forward_veer(1/2, -1) while belles $forward(1/2)'.&nbsp; This actually mixes
+        somewhat familiar words for calls with these obscure dollar-sign words and parentheses.&nbsp;
+        A word, by xonvention beginning with a dollar-sign, followed by zero or more expressions
+        enclosed in parenthese and separated by commas is a primitive.&nbsp; Grammatically,
+        they appear like any other call.&nbsp; Unlike other calls, however, they have no
+        definition explicitly listed.&nbsp; Look in the <a href="definition_guide.html">Call
+            Writer's Guide</a> for further information about primitves and what they do.</p>
+    <p>
+        <img align=right src=definition_editor_sample.png />The following image shows the same definition for "swing thru" unlocked for editing.&nbsp; Notice how the greyed
+        out field have now been rendered in white, indicating that they can be modified.</p>
+    <p>
+        Note also that a few new decorations have been added.&nbsp; In the upper-right corner
+        of each variant box, you will see the word Delete, along with Move Down and/or Move
+        Up.&nbsp; Like the other decorations,
+        your mouse cursor will change to a hand when over these words.&nbsp; If you click
+        there, the whole variant will be deleted, or
+        moved (depending on which link you click, of course).</p>
+    <p>
+        Where a decoration says "Add another part..." if you click a new, blank part box
+        will be inserted.</p>
+    <p>
+        Similarly, clicking on "Add another variation..." will create a new variant box
+        at the bottom of the list.</p>
+    <p>
+        You will notice the word Delete in the upper right corner of each part.&nbsp; Clicking
+        there will delete that part.</p>
+    <p>
+        One last point: As you type in a text field in these editors, you might notice that
+        the corresponding file does not report that it has been modified until you move
+        the cursor to some other field or otherwise click outside the text where you are
+        currently typing.&nbsp; This is related to how your edits are recorded.&nbsp; When
+        you undo the edits, you will only undo a full line or changes to the text, not the
+        individual keystrokes.</p>
+    <p>
+        &nbsp; &nbsp; &nbsp;&nbsp;</p>
+</BODY>
+</HTML>

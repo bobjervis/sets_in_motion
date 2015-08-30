@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Sequence Editor</TITLE>
+</HEAD>
+<BODY>
+<h1>Sequence Editor</h1>
+    <p>
+        The sub-window that you can use to view or edit a whole sequence is called a Sequence
+        Editor.&nbsp; It appears in the left-hand pane of the main window.</p>
+    <p><img align=right src=sequence_editor_sample.png />
+        The image on the right shows a sample Sequence Editor containing an new, barely
+        begun sequence.&nbsp; The top field is a one-line comment field.&nbsp; You can right anything
+        you like in there.&nbsp; It will show in the Dance Editor and may help you identify
+        it in a long list of sequences, or you may use it to contain information on difficulty.</p>
+    <p>
+        The Created field gives the date when the sequence was created.</p>
+    <p>
+        The Modified field contains the date of the last modification.</p>
+    <p>
+        The Created With field identifies the program and version used to create the sequence.&nbsp;
+        Note that for any sequence created with this program, you will see "SiMv1.0alpha3"
+        in that field.&nbsp; Future releases of the program will update that value.&nbsp;
+        That way, if there is any question about the compatibility of an older file with
+        a future version, this information might help.</p>
+    <p>
+        The Level field is the level of the Sequence.&nbsp; All calls in the sequence must
+        have a level less than or equal to this value.&nbsp; If you select a blank value,
+        any calls at all can be used in the sequence regardless of level.</p>
+    <p>
+        The rest of the window is taken up by the Call Area.&nbsp; Each call takes one line
+        of the display.&nbsp; Currently, long lines will not wrap around, so you must resize
+        the window if the space is not wide enough for your call.</p>
+    <p>
+        The Call Area itself is white and is large enough to hold the existing calls and
+        the current call being typed
+        (as in the example).&nbsp; The rest of the area is
+        available to hold suggested completions for the current call.&nbsp; Since the user
+        has typed "heads s" the program has found quite a few possible calls that start
+        with S.&nbsp;
+    </p>
+    <p>
+        You can click on any of the calls in the call area that have their text in black.&nbsp;
+        If this were a resolved sequence there would also appear a grey 'home' after the
+        last call.&nbsp; You cannot select the 'home' lines.&nbsp; They are there to indicate
+        the start and end of the sequence.&nbsp; Once the sequence resolves and the trailing
+        'home' string appears, you must change some existing call in the sequence to alter
+        the position.&nbsp; The program will automatically add or remove the 'home' string
+        as appropriate.</p>
+    <p>
+        When no traiiling 'home' string, you can click on the blank line immediately below
+        the last call in order to lengthen the sequence.</p>
+    <p><img align=left src=sequence_editor_error1.png />Note that if you type a call that
+        does not work, the word 'Failed' in red will appear to the left of the call.&nbsp;
+        In addition, an explanation will be written in red characters below the call itself.&nbsp;
+        In some cases, a call will be legal, but the program will insert a comment string
+        in orange.&nbsp; This is a flow warning and you can ignore it if you like.&nbsp;
+        At this point, the warnings are experimental as I am trying to figure out exactly
+        what conditions are worth tagging.</p>
+    <p>
+        Note that if the call failed and the error text below the call is written inside
+        a solid yellow background, this indicates a program bug, rather than a user error.&nbsp;
+        In general, if the error text is on a white background, the reason the call did
+        not work is that, according to the definitions in the program, this call is not
+        allowed from the current position.</p>
+    <p>
+        Please report all program bugs to me.&nbsp; Also report any instance in which you
+        disagree with the program's decision to mark a call as failed.</p>
+    <p>
+        Unless the call has failed because of some grammatical mistake (like a typo), you
+        will notice that a small button with a question mark appears on the line to the
+        far left of the call.&nbsp; This is a<em> drilldown</em> button.&nbsp; Whenever
+        you see a button like this, clicking on it will open up a Call Analysis page in
+        the right-hand side of the main window.&nbsp; This view will give you a step-by-step
+        guide through the call.&nbsp; Depending on what is happening in the call, there
+        may be further drilldown buttons in the analysis page as well.&nbsp; See the documentation
+        of the <a href="call_analysis.html">Call Analysis Browser</a> for more details.</p>
+    <p>
+        Note that you can cut-copy-paste text from a single line to or from these text fields
+        to other fields in this program or in any other Windows application.&nbsp; Pasting
+        large multi-line blocks of text from another program may not produce very good results
+        in <em>Sets in Motion</em>.</p>
+    <p>
+        In addition to positioning the text cursor in a particular call, when you click
+        on a call in the call area (including either 'home' string) you will open an Animation
+        screen in the right-hand side of the main window.&nbsp; The blue triangle that appears
+        to the left of a call in the Sequence Editor indicates where the Animation screen
+        is currently showing.&nbsp; See the documentation of <a href="animator.html">Animation</a>
+        for more details.</p>
+    <p>
+        If you press the Insert key when the cursor is in any call text, you will immediately
+        insert a new, blank call into the sequence at the line where the cursor is currently
+        located.</p>
+    <p>
+        If you right-click over a call, you will be given a menu with two choices:</p>
+    <ul>
+        <li><strong>Insert a call</strong>&nbsp; Shifts all calls from the one under the mouse
+            cursor to the bottom of the sequence down one and inserts a new blank call into
+            the current line.</li>
+        <li><strong>Delete this call</strong>&nbsp; Shift all calls below this line up by one
+            and erases the current call.</li>
+    </ul>
+    <p>
+    </p>
+</BODY>
+</HTML>

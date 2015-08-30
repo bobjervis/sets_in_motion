@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Geometries, Rotations and Coordinate Systems</TITLE>
+</HEAD>
+<BODY>
+<h1>Geometries, Rotations and Coordinate Systems</h1>
+
+<p>
+Real dancers on real dance floors are all unique.  No two dancers are exactly the same height, 
+have exactly the same arm lengths or the same gait.
+As a result, all squares are different and it would be impossible to write concise definitions
+of what a square dance call means if most of those differences mattered.
+Fortunately, most do not.
+</p>
+<p>
+    We describe and illustrate square dance choreography in terms of idealized dancers,
+    all of whom are exactly the same size.</p>
+    <p>
+        At first glance, a dance floor would seem to be tailor-made for classic Euclidean
+        geometry - just like we studied back in high school.&nbsp; In fact, computers are
+        far more Pythagorean: numbers are natural and easy to work while shapes and space
+        are alien and can be quite hard.&nbsp; So while we can use classic geometry to think
+        about dance choreography, to program it you must use more modern analytic geometry
+        and trigonometry.&nbsp; The genius of analytic geometry is the recognition that
+        any shape can be expressed as a function of numbers and numbers can be plotted as
+        a shape.&nbsp; All computer graphics rely on this deep relationship.&nbsp; So it
+        is with Descartes that we find our mathematics.</p>
+    <h2>
+        The Basic Grid</h2>
+    <p>
+        Start with the image in your mind of a squared set of dancers on their home spots.&nbsp;
+        From the perspective of the caller standing slightly above them on a stage, overlay
+        a Cartesian coordinate system.&nbsp; That is the old high-school algebra scheme
+        for plotting x and y.</p>
+    <p>
+        <img align=right src=grid_geo.png />The image at right illustrates how this grid
+        is mapped onto dancer positions.&nbsp; Each of the dancer's home spots are marked
+        on the grid (blue spots for boys and pink spots for girls).&nbsp; Notice that the
+        fine grid lines are spaced &frac12; unit apart. &nbsp;The unit distance is taken
+        to be the distance between the centers of each dancer in a couple.&nbsp; Their hands
+        are stipulated to be holding exactly at the grid line between them.</p>
+    <p>
+        Go back to the image of the caller looking out over the floor.&nbsp; In that view,
+        the bottom of the diagram is closest to the caller, and so is the number 1 couple.&nbsp;
+        The couple on the caller's right is couple number 2 and so on around the set.</p>
+    <p>
+        In principle, this grid could extend out to infinity, but in practice I have not
+        seen any formation wider than 5½ spaces to either side of the center line (triple
+        end-to-end waves).&nbsp; In any event, it would be hard to imagine dancers in a
+        single square being much further flung than that.&nbsp; And, as far as a computer
+        is concerned these are all very small numbers.</p>
+    <p>
+        It is absolutely true that in order for a dancer to move from one spot on a floor
+        to another, they must travel some continuous path of space between them.&nbsp; In
+        a sense, for some instant of time they are 'on' an infinite number of different
+        points between them.&nbsp; The animations the program produces are an attempt to
+        reproduce such a path.</p>
+    <p>
+        While a dancer clearly must occupy arbitrary positions in conducting the dance,
+        can they occupy arbitrary spots at rest?&nbsp; A great deal of the pattern matching
+        logic of formations inherent to square dancing answers that question one of two
+        ways:</p>
+    <ol>
+        <li>They can occupy any spot on the floor, but once a call is named and the possible
+            formations known, spots on the floor are no longer created equal.&nbsp; Instead,
+            the dancer is understood to be dancing on the nearest grid intersection and facing
+            directions are similarly re-oriented so that they are looking directly along a grid
+            line.&nbsp; This is how actual dancers operate.&nbsp; We physically amble to some
+            place on the floor and when we hear a call we assess how the current arrangement
+            maps onto the idealized formations in our heads.</li>
+        <li>They can only occupy grid intersections.&nbsp; Every call must specify precise motions
+            that displace a dancer by multiples of ½ unit distance either front-to-back or side-to-side.&nbsp;
+            Similarly, the specifications must change facing in &frac14;&nbsp; circle units.&nbsp;
+            This is how the <em>Sets in Motion</em> simulated dancers operate.&nbsp; One of
+            the reasons the animations are currently as stiff as they are is that each intermeidate
+            point in a dancer's path must land on a grid location.</li></ol>
+    <p>
+        I have danced on floors where people have painted grid lines.&nbsp; They do this
+        because the first method of working has a problem of round-off.&nbsp; If you are
+        not precise in your movements, or do not use some other mental method of keeping
+        track of the overall formation of the dancers, you will occasionally misjudge where
+        you are standing and this will inevitably lead to a mistake.&nbsp; By having guidelines
+        on the floor, you can adjust yourself and dance more like method 2.</p>
+    <p>
+        Many of the disagreements I hear about formations in square dancing revolve precisely
+        around these issues of precision.&nbsp; It seems, from the work I've done so far
+        on the Callerlab Basic list, that the wide gulf between directional choreography
+        and dance-by-definition choreography rests in an appreciation of these two approaches.&nbsp;
+        In directional choreography, you are often permitted a fairly wide latitude for
+        adjusting your position on the floor in order to do a call.&nbsp; You blend your
+        movements together so that it doesn't make sense to takl about beginning and ending
+        positions.&nbsp; Those depend on what happens around them, the calls.&nbsp; The
+        positional choreography that you find in the Challenge program in particular is
+        diametrically opposite.&nbsp; In this style, one knows exactly where in this idealized
+        geometry every dancer is after every call.&nbsp; Adjustments of breathing are designed
+        to codify the various bits of fuzziness that have to be resolved sometimes in order
+        to arrive at 'the right answer'.&nbsp; Challenge dancing is often described as problem
+        solving.&nbsp; And it is clear to such dancers that the problem being solved is
+        locating the dancers and getting your body as close as you reasonably can to that
+        idealized spot where you belong.</p>
+    <h2>
+        Rings</h2>
+    <p>
+        While this grid works well for most dance-by-definition choreography, especially
+        that used in the Challenge program, some formations and calls simply do not make
+        sense in this grid.&nbsp; Rings in particular do not fit many conventions of a grid.&nbsp;
+        For that reason, I introduced a second form of geometry that better describes ring
+        formations.&nbsp;
+    </p>
+    <p><img align=right src=ring_geo.png />The image at right illustrates the configuration
+        of space when dancers are in a ring formation.&nbsp; Circling, allemande left or
+        right, hinge from a thar, and other calls all yield a ring. The dancer blobs in
+        this case are not rendered especially well (forgive my rotten drawing skills).&nbsp;
+        The Animations positions the dancers much more effectively in this arrangement so
+        that the ring shape is more clear.</p>
+    <p>
+        Nevertheless, this image does show the correct 'grid' intersections that dancers
+        would occupy if you called "check a ring" from a squared set.&nbsp; In that arrangement,
+        dancers move slightly to adjust from the square grid to the radial grid.</p>
+    <p>
+        In this arrangment, an x coordinate corresponds to one of the radial lines.&nbsp;
+        The numbering of radial line 0 (aligning it with girl number 4, is fairly arbitrary.&nbsp;
+        The choice of increasing the x coordinate as you turn clockwise has a fortuitous
+        side-effect when doing formation matching.&nbsp; I'll explain that in a moment.</p>
+    <p>
+        The y coordinate is the radius from the center.</p>
+    <p>
+        Dancers are still constrained to face along one of the grid lines, so in a squared
+        set, after "check a ring", all dancers are facing directly toward the center.&nbsp;
+        If all dancers were to face right, for example, they would be facing along the circlular
+        arc they occupy.</p>
+    <p>
+        The x coordinate values allow me to assign facing directions that are the same codes
+        as for a square grid.&nbsp; The coorespondence is that facing the "front" of the
+        hall in a square grid faces toward the negative Y-axis.&nbsp; In a ring, facing
+        the negative Y-direction is facing inward.&nbsp; So "front" in a square grid uses
+        the same code as "in" in a ring grid.&nbsp; Analogously, facing promenade direction
+        (counter-clockwise) faces toward negative X-direction.&nbsp; In the square grid,
+        the negative-X axis is toward the caller's left.&nbsp; So the "left" facing direction
+        in the square grid uses the same code as the "promenade" direction does in the ring
+        geometry.</p>
+    <p>
+        The elegance of this assignment is that calculating the new facing direction after
+        a "face left" call in a square grid is exactly the same as for a ring geometry.&nbsp;
+        Similarly, all of the formation matching code is identical with one exception: in
+        a ring, the x coordinates 'wrap around' so that you move from 7 to 7&frac12; to
+        0 and vice versa.&nbsp; In a grid, coordinates never wrap around (the world is flat!).&nbsp;
+        Actually, that isn't entirely true.&nbsp; Assuming a hand-to-hand width of 3 feet
+        per unit of distance, the square grid wraps around as if the Earth had a diameter
+        of roughly 170,000 miles.&nbsp; That is somewhat less than a third the diameter
+        of the Sun, or about 20 Earth diameters.</p>
+    <p>
+        So, most of the code that has to move dancers around just pretends that the ring
+        geometry is a square, flat geometry.</p>
+    <h2>
+        Hexagonal Geometry</h2>
+    <p>
+        Some callers have worked out hexagonal dancing.&nbsp; While I have reserved some
+        code to handle it, I have not yet worked out the details of the geometry, so I do
+        not know how much effort would be required to extend the existing formation code
+        to include hexagonal choreography.</p>
+    <p>
+        Currently, doing so is not a high priority.</p>
+    <h2>
+        Rotations</h2>
+    <p>
+        The two geometries that <em>Sets in Motion</em> currently uses are still not enough
+        to describe the kinds of formations that routinely appear in modern square dance
+        choreography.&nbsp; In particular, the act of calling "circle left" with no specific
+        fraction or "promenade, don't stop, don't slow down" will rotate the dancers an
+        arbitrary amount around the flagpole center of the set.&nbsp; Once rotated, the
+        dancers are supposed to work with each other as if they were still square to the
+        walls.</p>
+    <p>
+        Real dancers will usually adjust themselves to the nearest wall.&nbsp; This can
+        be confusing to a caller, who may forget and call something that relies on dancers
+        being square in some specific way.&nbsp; If they have numerous squares on the floor,
+        some may have turned more than others.</p>
+    <p>
+        To help avoid that situation, in <em>Sets in Motion</em>, when you issue a call
+        that rotates the whole set in this manner, a separate indicator is set to mark the
+        rotation angle of the whole group of dancers.&nbsp; The dancers themselves are then
+        represented internally as if they were square to walls (you can think of it as the
+        program squaring the walls to the dancers).&nbsp; The difference is that phrases
+        like "dancers at head positions" are not allowed in calls when the dancers are rotated
+        in this way.</p>
+    <p>
+        Some calls like "1/4 top" will rotate the dancers by exactly 45 degrees (1/8 of
+        a circle).&nbsp; In such a situation, the dancers are rotated by a specific amount
+        and if you were to call, for example, another "1/4 top", this would restore the
+        dancers to the correct, original orientation.&nbsp; At that point, declaring "dancers
+        at head positions' would be valid.</p>
+    <h2>
+        Coordinate Systems</h2>
+    <p>
+        Those of you who may have programmed computer graphics might be familiar with the
+        notion of multiple coordinate systems.&nbsp; The idea is that rather than have your
+        drawing code know exactly where you are drawing at all times, you write your code
+        to draw to a "local coordinate system".&nbsp; In an analogous way, <em>Sets in Motion</em>
+        will introduce new coordinate systems in order to perform a call.</p>
+    <p>
+        For example, if you call "split circulate" in parallel waves, the program groups
+        the dancers into two boxes and then performs the call separately on each.&nbsp;
+        When it does so, it actually introduces a new coordinate system so that each box
+        appears to be centered on the enter of the set.&nbsp; This makes determining directions
+        like 'in' or 'out' easier to calculate.</p>
+    <p>
+        More importantly, any given formation is drawn in only one orientation.&nbsp; The
+        program, however, will rotate the formation (in 90 degree increments) as needed
+        to fit the dancers. &nbsp;Once again, to make the calculations easier, when a formation
+        must be rotated, the grouped dancers are converted into a new coordinate system
+        where the x and y axes are (counter-)rotated to compensate.</p>
+    <p>
+        Where this system becomes especially valuable is in handling the mirror concept
+        (and the various left/right call variations).&nbsp; To perform a call in mirror
+        is a matter of creating a new coordinate system in which the x-axis is negated.&nbsp;
+        This simple numerical trick will transform all leftward motions into rightward and
+        vice versa.</p>
+    <p>
+        Another use for coordinate systems is in concepts like "as couples".&nbsp; Here
+        the dancers are mapped onto an abstract set of pseudo-dancers.&nbsp; These pseudo-dancers
+        execute the call in their own coordinate space and the resulting actions are then
+        mapped back to the actual dancers.</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+</BODY>
+</HTML>

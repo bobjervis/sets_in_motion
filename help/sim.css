@@ -1,0 +1,16 @@
+BODY
+{
+}
+.example {
+    margin: .1in .5in;
+    border: solid 1px grey;
+}
+.example_intro
+{
+    font-style: italic;
+}
+.example_instance 
+{
+    font-weight: bold;
+    margin-left: .3in;
+}

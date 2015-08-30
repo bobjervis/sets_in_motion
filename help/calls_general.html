@@ -1,0 +1,255 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Directional Calls</TITLE>
+</HEAD>
+<BODY>
+<h1>
+    Directional Calls</h1>
+<p>
+These topics are organized under the label attached to the call in the <em>Sets in Motion</em>
+    database.</p>
+<h3>ANYONE ANYTHING</h3>
+    <div class="example">
+        <div class=example_intro>Example:</div>
+        <div class=example_instance>heads square thru 3</div>
+        <div class=example_instance>trailers cross</div>
+    </div>
+    <p>
+        The ANYONE phrase designates some dancers.&nbsp; In some cases, such as for "centers"
+        and "ends" or "leaders" and "trailers", no one may fit the designation in the current
+        formation.&nbsp; If no dancers match the designation, the call fails.</p>
+    <p>
+        You can combine multiple ANYONE designations (since ANYTHING includes another ANYONE
+        ANYTHING), such as "heads centers".&nbsp; In the future the more natural "head centers"
+        or "center heads" would be preferred, but those more complex phrases are not yet
+        recognized.&nbsp; If you do combine multiple designations, then only the dancers
+        that satisfy all of the designations perform the call.</p>
+    <p>
+        My understanding is that when designating dancers as in this call, the call is performed
+        as if all other dancers disappeared.&nbsp; Thus, when you are looking for partners,
+        for example, for one of the designated dancers you only consider other designated
+        dancers.&nbsp; It is important to realize that some calls include designating some
+        dancers (such as "ANYONE run".&nbsp; In <em>Sets in Motion</em> there is no "run"
+        call.&nbsp; So "boys run" is not an instance of ANYONE ANYTHING.&nbsp; It is a separate
+        call where all dancers are potential partners for the designated runners.&nbsp;
+    </p>
+    <p>
+        If you say "centers boys run", only the center boys may run and they must run around
+        another center (because you are saying ANYONE ANYTHING with ANYONE being "centers"
+        and ANYTHING being "boys run").&nbsp; If you say "center boys run" then you are
+        saying&nbsp; ANYONE run with ANYONE being "center boys".&nbsp; If you called "center
+        boys run" from lines or waves, the center boys would have to run around the nearest
+        end dancer (their partner in the larger formation).&nbsp; Note that this early test
+        version does not support a number of compound designations like "center boys", but
+        will in the future.</p>
+    <p>
+        In most cases, this subtle distinction won't make any difference.&nbsp; But, as
+        the previous example illustrates, when it does make a difference it can be important.</p>
+    <p>
+        Another example may be worth mentioning.&nbsp; If you have a wave with boys in the
+        center and call "boys u-turn back", the boys must turn toward each other.&nbsp;
+        The girls are not counted when looking for partners.&nbsp; If you said "u-turn back"
+        in this situation, the boys' partners are the adjacent end dancers (the girls),
+        and they would have to turn toward them.&nbsp; But once you designate anyone, that
+        relationship no longer applies and you must look elsewhere for partners.</p>
+    <p>
+        The Squared Set Convention says that when designating dancers, such as "heads" or
+        "sides" to do a move from a squared set, if the move cannot be done from the formation
+        the dancers are in, then the designated dancers move into the middle and perform
+        the call.&nbsp; Then, when done, if the active dancers are still facing the same
+        wall as they started and didn't interact with the other dancers (so they are where
+        they started), then the active dancers back out (or step forward as their facing
+        dictates) to squared set positions.</p>
+    <p>
+        <em>Sets in Motion</em> implements the Squared Set Convention using some extra wording
+        in this call.&nbsp; Since you can only trigger the Squared Set Convention by designating
+        dancers, this is the best place to add the test.&nbsp; Essentially, if the basic
+        move cannot be done, then the program tries the alternate (moving in before doing
+        the call).&nbsp; Only if neither method succeeds will the overall call fail.</p>
+    <p>
+        Also note that the program only checks whether the dancers can start the call correctly.&nbsp;
+        Any problems that develop after a dancer has actually moved may cause the call to
+        fail (such as if the call eventually reaches a point where the dancers cannot finish).&nbsp;
+        This reflects the fact that real dancers will commit themselves to a particular
+        interpretation of the call and start moving without necessarily realizing that some
+        later stage of the call will not work.&nbsp; I am not aware of a call that will
+        fail in this way, but if you find a situation and disagree with the outcome, let
+        me know.</p>
+    <h3>ANYONE back away</h3>
+    <div class="example">
+        <div class=example_intro>Example:</div>
+        <div class=example_instance>heads back away</div>
+        <div class=example_instance>centers back away</div>
+    </div>
+    <p>
+        This is directing the named dancers to back away from the center of the set.&nbsp;
+        It requires that the designated dancers must be standing on one of the center four
+        positions of a set.&nbsp; They must be facing the same set of walls (side or head
+        walls) and the home positions just outside of them (e.g. side positions when facing side
+        walls) must be unoccupied.&nbsp; The designated dancers will either step forward
+        or back one full position to occupy the vacant home positions nearest them.</p>
+    <h3>
+        ANYONE move in</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            heads move in</div>
+        <div class=example_instance>
+            sides move in</div>
+    </div>
+    <p>This directs the named dancers, who must be standing on home positions, to move
+        into the middle.&nbsp; The named dancers must be facing in and the center positions
+        immediately in front of them must be empty.</p>
+    <h3>
+        ANYTHING INTEGER times</h3>
+    <h3>
+        ANYTHING twice</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            circulate twice</div>
+        <div class=example_instance>
+            in roll circulate 3 times</div>
+    </div>
+    <p>
+        This simply repeats the indicated call the number of times specified.&nbsp; It accomplishes
+        the same thing as writing the call that many times in a row.&nbsp; It is provided as a
+        convenience.</p>
+    <h3>
+        FRACTION ANYTHING</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            1/2 swing thru</div>
+        <div class=example_instance>
+            circulate 1 and 1/2</div>
+    </div>
+    <p>
+        Note that the fraction can be written as an improper fraction and may include whole
+        number parts as well as fractions.&nbsp; The word and must appear between the whole
+        number and fractional part of the phrase.&nbsp; This call executes the indicated
+        fraction of the ANYTHING call.&nbsp; This fails if the call has a number of parts
+        that is not compatible with the given fraction.&nbsp; Calls with only one part can
+        only be fractionalized if the one part consists of a single call.&nbsp; If so, then
+        the embedded call is fractionalized by the given amount.</p>
+    <p>
+        If a call contains a particular number of parts, such as 3, then any fraction that
+        is expressed as thirds or any multiple of thirds (as in 2/6) will succeed.&nbsp;
+        As an additional convenience, if the fraction is not exact to the number of parts
+        in the call, as in using 1/2 for a three part call, then as many parts as the fraction
+        allows will be performed and the remaining part of the fraction is then applied
+        to the next part.&nbsp; For example, if you call "1/2 remake", which is a three
+        part call, then the first part and half of the second part is performed.</p>
+    <p>
+        Note also that if the indicated part is a primitive, some primitives may allow further
+        fractionalization while others do not.&nbsp; For example, trade from a mini-wave
+        is written as an <strong>$arc</strong> primitive.&nbsp; This primitive can be broken
+        down as far as 1/4 turns only.&nbsp; Since a trade is written (in this formation)
+        as an <strong>$arc</strong> 1/2, you can call "1/2 trade" since that will turn the
+        <strong>$arc</strong> fraction from 1/2 to 1/4 and still be a valid move.&nbsp;
+        If you tried to call "1/3 trade", however, your call would fail because you cannot
+        turn 1/6 of a circle.</p>
+    <h3>
+        ANYTHING and ANYCALL</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            boys trade and roll</div>
+        <div class=example_instance>
+            square thru and trade by<br />
+            centers trade and pass thru</div>
+    </div>
+    <p>
+        Primarily, this call performs the first listed call and then the second.&nbsp; If
+        your first call of the pair designates some dancers, then only the active dancers
+        perform the second call.&nbsp; Also, be aware that you are not re-applying the designator
+        for the second call.&nbsp; A call like "leaders u-turn back and circulate" is not
+        the same as "leaders u-turn back and leaders circulate".&nbsp; In the first instance,
+        the 'leaders' designate whatever dancers apply.&nbsp; Even if they are no longer
+        leaders (as u-turn back will typically turn leaders into trailers), they are still
+        the active dancers and will perform the circulate.&nbsp; In the second case, only
+        those active dancers that remained leaders will do the circulate.</p>
+    <p>
+        <em>Sets in Motion</em> uses the term 'ANYCALL' as the second part of this compound
+        call as a syntactic way to describe how concepts such as "as couples" are applied.&nbsp;
+        Almost all calls are counted by the program as instances of ANYTHING.&nbsp; The
+        exception is any call that begins with ANYTHING itself.&nbsp; Calls whose phrases
+        begin with ANYTHING, such as "ANYTHING twice" are counted as instances of ANYCALL.</p>
+    <p>
+        When you say "as couples trade and roll", it is my understanding that the 'as couples'
+        concept only applies to the first call, not to the roll.&nbsp; There are those who
+        believe that this is not true and a call such as this means that the roll should
+        be done 'as couples' as well.&nbsp; Because of this difference of opinion, some
+        callers recommend saying "as couples trade and individually roll" versus "as couples
+        trade and as couples roll" in every case where there might be confusion.&nbsp; <em>Sets
+            in Motion</em> requires that you say "as couples trade and as couples roll"
+        to get the roll done 'as couples'.&nbsp; In the future, this may well become a selectable
+        preference.</p>
+    <h3><a id=adjust_to_a_box />
+        adjust to a box</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            pass the ocean;
+            ends fold; adjust to a box</div>
+        <div class=example_instance>
+            centers cross fold; adjust to a box</div>
+    </div>
+    <p>From a Z, dancers move either forward or back to form a box.</p>
+    <p>
+        From two twosomes separated by two phantoms (as might arise after a fold or cross-fold
+        call), the twosome slide laterally together to make a box.</p>
+    <h3>
+        check a ring</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            check a ring; swing thru</div>
+        <div class=example_instance>
+            check a ring; girls run right</div>
+    </div>
+    <p>
+        From a squared set, this call moves the dancers slightly and arranges them into
+        an alamo ring.&nbsp; For example, the call "swing thru" is not defined from a squared
+        set.&nbsp; However, I believe that it is acceptable to direct dancers in a squared
+        set to join hands in a ring so that you can then call "swing thru".&nbsp; Otherwise,
+        you would have to use the rather absurd looking "circle left 0/4" which seems far
+        from obvious.</p>
+    <h3>
+        those who can ANYTHING</h3>
+    <div class="example">
+        <div class=example_intro>
+            Example:</div>
+        <div class=example_instance>
+            those who can left turn 1/4</div>
+        <div class=example_instance>
+            those who can touch 1/4</div>
+    </div>
+    <p>
+        The phrase "those who can" should probably be considered a variation of "ANYONE".&nbsp;
+        Unlike phrases like "head boys" which always name the same dancers or "leaders"
+        which name dancers in the current formation on the floor, "those who can" depends
+        entirely on what the call does to figure out who is designated.&nbsp; Therefore,
+        it is easier to define this phrase as a separate call, rather than try and make
+        it an ANYONE phrase.</p>
+    <p>
+        <em>Sets in Motion</em> will try every combination of dancers and every possible
+        starting formation to get the most number of dancers doing the call.&nbsp; It will
+        succeed if any or all of the dancers can be grouped to do the call.&nbsp; It will
+        fail if no one can do the call.&nbsp; It will also fail if there is more than one
+        way to get the maximum number of dancers involved.&nbsp; For example, "those who
+        can trade" in an in-facing ring of 8 will fail if the dancers are not arranged with
+        alternating man-woman.&nbsp; Since a couple is any two adjacent dancers with the
+        same facing, if the dancers are boy-boy-girl-girl, you could make same-sex pairs
+        or boy-girl pairs and still have all 8 dancers trading.</p>
+    <p>
+        &nbsp;</p>
+</BODY>
+</HTML>

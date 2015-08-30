@@ -1,0 +1,250 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Breathing</TITLE>
+</HEAD>
+<BODY>
+<h1>Breathing</h1>
+    <p>
+        <em>Breathing</em> is the set of adjustments that dancers make at various points
+        during and between calls.&nbsp; The precise definition of when and how to apply
+        these adjustments does not exist.&nbsp; It may be that no consistent set of rules
+        could be defined.&nbsp; For example, a strong measure of the correctness of the
+        program is the degree of similarity between actual dancers performing a call and
+        the animation produced for the same call.&nbsp;
+    </p>
+    <p>
+        For example, one desired rule might be that the physical distance between dancers
+        exactly matches the number of grid spots, or half-spots, that separate them in their
+        formation.</p>
+    <p>
+        Moreover, some calls alter In some cases a formation will change and
+        dancers will typically not
+        move at all, even though breathing rules imply that they should.&nbsp; For example, from a squared set, having the heads pass the ocean changes
+        the set from a 4x4 arragnement to a 4x3, triple line/wave formation.&nbsp; The side
+        dancers should move a half-position forward to keep their distance from the heads
+        correct, but few dancers do.</p>
+    <p>
+        In other cases, dancers move to alter the physical distance between themselves and
+        at least one other dancer, even though they have not changed their logical relationship
+        with one another.&nbsp; For example, from parallel waves, if you have the centers
+        hinge, the end dancers will move a half position to make diamonds even though they
+        are still ends of lines.</p>
+    <p>
+        In creating <em>Sets in Motion</em> I have made every effort to compartmentalize
+        the dancing rules so that the rules you have to write to define a call, while they
+        may be more mathematical than the words in the Callerlab definition, still follow
+        closely to the content of the original words.&nbsp; You should not have to be aware of a
+        large number of additional rules and requirements when you sit down to write a new
+        definition.&nbsp; The rules about how to perform calls that are general across calls
+        for real dancers should be coded into the program in general and should not have
+        to be incorporated explicitly into the call definitions themselves.</p>
+    <p>
+        This has proven to be quite difficult.&nbsp; Humans are equipped with powerful intuitions
+        about geometry that they do not think about and will subconsciously accumulate rules
+        of behavior on the dance floor without ever having heard a specific rule described.&nbsp;
+        Often these intuitions are incomplete when viewed over all square dance levels and
+        situations, but work just fine for most circumstances.&nbsp; Humans are also adept
+        at adorning general intuitions with specific exceptions, again without the need
+        for explicit teaching.</p>
+    <p>
+        I believe that the success of human intuition and the daunting nature of whatever
+        explicit rules underly those intuitions have hobbled our ability to agree on a succinct
+        set of rules to teach dancers.&nbsp; As a result, at almost any time and especially
+        after we learn a new level, we can encounter a novel situation where our own internalized
+        rules break down and direct us to the wrong spot.</p>
+    <p>
+        Computer programs possess no intuition (at least none that seem to help the programs
+        learn to dance, anyway).&nbsp; They must be given explicit instruction for every
+        twitch a simulated dancer must emit.&nbsp; Whatever rules that are derived for this
+        purpose can then at least be discussed and compared to our own experience to decide
+        whether those rules correspond to actual square dancing.</p>
+    <h2>
+        Callerlab Rules</h2>
+    <p>
+        The Callerlab Basic and Mainstream Definitions call out several rules related to
+        breathing: the Same Position Rule, the Facing Couples Rule, the Ocean Wave Rule,
+        the Squared Set Convention and the Circle Rule.&nbsp; <em>Sets in Motion</em> treats
+        each of these rules somewhat differently.&nbsp;
+    </p>
+    <p>
+        The Same Position Rule is applied automatically.&nbsp; The definition of the rule
+        begins "If two dancers are required to occupy the same position at the end of a
+        call, ...".&nbsp; The difficulty arises when you consider that many calls are written
+        in terms of other calls.&nbsp; Also, some calls such as Percolate when called from an Eight
+        Chain Thru formation, seem to be defined in a way that could not work unless this rule
+        is applied at points during the course of the Percolate itself.&nbsp; Of course,
+        to complicate matters, other calls such as Plenty 
+        are danced without the Same Position Rule being applied in the middle of the second
+        part (which are 2 split circulates). &nbsp; I have decided in <em>Sets in Motion</em> that the Same Position
+        Rule is applied after each Part of each call, but not between actions within a single
+        part of a call.</p>
+    <p>
+        The Facing Couples and Ocean Wave Rules are not applied automatically.&nbsp; These
+        rules are instead coded into the appropriate call definitions.&nbsp; I believe that
+        this is consistent with the trend to add language to Callerlab definitions to clarify
+        that a particular call uses these rules.</p>
+    <p>
+        The Squared Set Convention and the related Circle Rule are also not applied automatically.&nbsp;
+        Instead, a rather complex conditional test is written into the ANYONE ANYTHING (directional)
+        call.&nbsp; These rules can only apply in situations where the caller is designating
+        some dancers to do a call, so it seems only natural that the program not clutter
+        general processing with tests that could only apply to a single definition anyway.&nbsp;
+        The "ANYONE ANYTHING" call is itself not a Callerlab call according to their nomenclature,
+        but rather a convenient way to build dancer designations into the general <em>Sets in
+            Motion</em> framework.</p>
+    <h2>
+    </h2>
+    <h2>
+        Non-Callerlab Rules</h2>
+    <p>
+        You should understand that any rules described here are completely unofficial and
+        represent my best understanding of how dancers should adjust their positions.</p>
+    <h3>
+        General Principles</h3>
+    <p>
+        These are not considered the 'rules' of breathing, but rather the principles that
+        motivate the rules I have formulated.&nbsp; The rules are an attempt to generalize
+        the habit of describing the 'final formation' of a call as if it were a part of
+        the definition, even when the call does not explicitly say so.&nbsp; Either the
+        general rules exist, or some definitions need to be amended to allow for general
+        rules.&nbsp; The alternative is an exhaustive enumeration of starting and finishing
+        formations for all calls.&nbsp; Clearly, dancers do not need this enumeration to
+        agree on what the final formations are, even in situations where they have never
+        seen the call before.&nbsp;
+    </p>
+    <p>
+        To be sure, there are calls whose definitions specify no specific ending formation,
+        relying on 'blending' with the next call to determine what to do.&nbsp; For now,
+        <em>Sets in Motion</em> makes no attempt to figure out that blending process.&nbsp;
+        The <a href="caller_guide.html">Caller's Guide</a> describes those calls, how the
+        program handles them, and what you can say to achieve the understood formation that
+        real dancers would use.</p>
+    <p>
+        For the overwhelming majority of calls, it is understood that the final formation
+        of the call does not depend on the next words out of the caller's mouth.</p>
+    <p>
+        Another consideration of these principles and rules is that they should apply wherever
+        possible to asymmetric situations.&nbsp; Many situations can arise in asymmetric
+        calling that would never appear in symmetric calling.&nbsp; While Callerlab does
+        not explicitly say so, we assume that callers will generally designate dancers in
+        symmetric groups and all call definitions are written to produce symmetric outcomes
+        from symmetric starting formations.&nbsp; However, asymmetric calling is popular
+        and a number of callers enjoy creating asymmetric choreography.</p>
+    <h4>
+        Boxes are Square</h4>
+    <p>
+        This may seem obvious, but most of the geometry <em>Sets in Motion</em> uses to
+        arrange dancers relies on this fact.&nbsp; The distance between dancers in a couple
+        or mini-wave is the same as that between parallel lines or waves.&nbsp; If a call,
+        considered by itself, would push dancers out of this arrangement, breathing rules
+        tell them how to adjust to restore these distances or tell them exceptions where
+        they must violate this rule.</p>
+    <p>
+        One corollary of this statement is that if you direct a subset of dancers to do
+        a call that does not change their shape (between starting and ending formations),
+        then the uninvolved never need to adjust their position.&nbsp; Conversely, if a
+        subset call does change shape, then the uninvolved dancers will typically have to
+        adjust in some manner.</p>
+    <p>
+        Depending on the call and initial dancer arrangement sometimes the uninvolved dancers
+        remain stationary and the involved dancers must adjust.</p>
+    <h4>
+        Compaction</h4>
+    <p>
+        In general, breathing finds a compact arrangement of dancers that best maintains
+        side-to-side and front-to-back distances that will make boxes square.&nbsp; There
+        is no limit on the amount of lateral or longitudinal (front-to-back) motion a dancer
+        must perform in order to satisfy these rules.&nbsp; For example, starting in a tidal
+        wave, having the center 6 counter-rotate means that the very end dancers must end
+        with only 1 dancer-distance between their inside hands.&nbsp; Before the call there
+        were six dancers between them!&nbsp; They actually have to move further than most
+        of the dancers involved in the call!&nbsp; And if the caller were to have the center
+        6 do another counter-rotate those ininvolved dancers would have to spread apart
+        again just as far!</p>
+    <h4>
+        Personal Space</h4>
+    <p>
+        Every dancer has a 'personal space' that extends around them. &nbsp;The rules of
+        breathing restore this space whenever a call would otherwise place them too close
+        to another dancer.</p>
+    <p>
+        <img align=left src="personal_space.png" />
+        The way to think of this space is as a diamond inscribed within a square.&nbsp;
+        The diamond can never overlap with the diamond-shaped central zone of any other
+        dancer's personal space.&nbsp; The points of this diamond at each side of the dancer
+        represents the center of each hand.&nbsp; Thus, adjacent dancers have their diamonds
+        just touching at the points.&nbsp; The diamond extends the same distance in front
+        of their nose and behind them as well.&nbsp; Parallel lines or waves have personal-space
+        diamonds touching just at the front and back points.</p>
+    <p>
+        The large square around a dancer is a little more permissive.&nbsp; The only way
+        the square around a given dancer can overlap with the personal diamond of another
+        dancer is when they are standing at right angles, such as the centers of a star
+        or thar.&nbsp; Thus, we can have up to four dancers touching hands at the same spot.</p>
+    <p>
+        In general, if a call does not place dancers touching hands at right angles, the
+        rules of breathing will not do so.&nbsp; If dancers are too far apart, they will
+        move together until their personal-space squares are touching, but no closer.</p>
+    <h4>
+        Inside and Outside</h4>
+    <p>
+        The most complicated situations arise when one group of dancers is 'inside' and
+        doing something different from whatever dancers are 'outside'.&nbsp; In general,
+        the 'inside' dancers will hold their final positions and the 'outside' dancers will
+        close in or spread apart, as needed.</p>
+    <p>
+        &lt;&lt; This section is under construction and is incomplete. &gt;&gt;</p>
+    <h3>
+        Rules</h3>
+    <h4>
+        Handhold Rule</h4>
+    <p>
+        The first rule of breathing that is not described by Callerlab, but is implemented
+        by <em>Sets in Motion</em> can be called the Handhold Rule or less generally the
+        Diamond Point Rule (the most common situation where it applies).&nbsp; This rule
+        can, under the right circumstances, apply to all the dancers on the floor.&nbsp;
+        Essentially, any dancer who finds themselves standing with a shoulder toward a dancer
+        who has an appropriate hand-hold should step slightly forward or back to put their
+        body in line with the hand-hold.</p>
+    <p>
+        To find these "appropriate handholds" the only dancers that matter are dancers with one hand just touching a center line
+        and the hand-hold that matters is any they have with their <strong>other</strong>
+        hand.&nbsp; For example, at home positions, all dancers have one hand touching a
+        center line (sides are touching the side-to-side center line and the heads are touching
+        the front-to-back center line).&nbsp; However, none of these dancers has anyone
+        by their other hand, so no one adjusts.&nbsp; Suppose now, though, that we have
+        the sides face and the heads pass the ocean.&nbsp; Now the heads are all standing
+        on the front-to-back center line, but the head girls are just touching the side-to-side
+        center line.&nbsp; Also, the head girls have a head boy in their other hand.&nbsp;
+        So now the sides must step back to make diamond points by aligning themeselves exactly
+        between the head boys and girls.</p>
+    <p>
+        It doesn't matter whether the hand hold is in a couple or a mini-wave, nor does
+        it matter that the hand-hold dancers are standing on the other center line.&nbsp;
+        Suppose we have facing boy-boy-girl-girl lines and have the boys bend the line.&nbsp;
+        We now have the right-hand dancer in each couple touching a center line.&nbsp; So
+        each girl couple has to back up to align themselves with the boys and the boys
+        have to back up slightly to align themselves with the girls.&nbsp; This creates
+        one variation of the phantom formation (as illustrated in the Callerlab Approved
+        Formations document - no. 62 in the August, 2009 version)..</p>
+    <p>
+        When dancers make this adjustment, it does not alter the fact that they are part
+        of a line formation, nor does it alter whether they are a center or an end of that
+        line.&nbsp; This is why we say that diamond points are ends of lines, even though
+        the points on the same end of the line are clearly standing too far apart from one
+        another for lines.</p>
+    <p>
+        Note that dancers who had to make this adjustment will undo this adjustment if some
+        following call eliminates the hand-hold they were centered on.&nbsp; For example,
+        calling "Centers Hinge" from twin diamonds should see the end dancers move closer
+        together to make the parallel lines or waves that are the proper final formation
+        after this call.</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+
+
+</BODY>
+</HTML>

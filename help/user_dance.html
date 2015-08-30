@@ -1,0 +1,94 @@
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Dance Editor</TITLE>
+</HEAD>
+<BODY>
+<h1>Dance Editor</h1>
+    <p>
+        The sub-qindow that you can use to view a list of sequences parsed from a file or
+        in My Library is a Dance Editor.&nbsp; The only difference between a file editor
+        and the My Library editor is that you see the file name for files, but the name
+        of My Library on disk is hidden.&nbsp; Otherwise, all Dance Editors are alike.</p>
+    <p><img align=right src=dance_editor_sd.png />The image at right shows a sample SD
+        output file after it has been opened. &nbsp;A Dance Editor will always appear in
+        the right-hand pane of the main window.&nbsp; Notice that when you parse in an SD
+        file, it will be re-formatted as a full Dance file and if you modify it and save
+        it, it will be saved in DNC format (the native format of <em>Sets in Motion</em>).</p>
+    <p>
+        A Dance Editor shows, if it was created for a specific file, the file name across
+        the top of the pane.&nbsp; Otherwise, the rest of the pane is filled with six columns
+        of information.</p>
+    <p>
+        The left-most column is a simple ID number, which is the number of the sequence
+        in the file.&nbsp; This number will be shown with the sequence when it is being
+        viewed or editied individually.</p>
+    <p>
+        The next column is a column of checkboxes.&nbsp; Clicking on the boxes selects or
+        deselects the corresponding sequence.&nbsp; Note that in the image, three sequences,
+        numbers 7, 10 and 11 have been checked.&nbsp; Selecting sequences in this way is
+        handy for printing multiple sequences at once.</p>
+    <p>
+        The Status column can have several possible values:</p>
+    <ul>
+        <li>Ready.  All calls in the sequence are valid and the dancers finish in home positions.  It is ready to be called.&nbsp;</li><li><span style="color: #ff0000">Failed</span>. At least one call in the sequence
+      failed for some reason.&nbsp; Open the sequence in a Sequence Editor to see more
+      information.&nbsp; You should probably not call this sequence until the problems
+      have been fixed.</li><li><span style="color: #0000ff">Unresolved</span>. All calls in the sequence
+      are valid.&nbsp; The dancers are not in home positions.&nbsp; You could call this
+      sequence if you are prepared to site call the dancers home.</li><li><span style="color: #ff8000">Unchecked</span>. The definitions files have
+      been modified in some way since this sequence was last checked.&nbsp; Whenever you
+      modify a definition, all sequences are reset to this state.&nbsp; When you look
+      at the sequence in a Sequence Editor, it is automatically re-checked and its status
+      is updated.&nbsp; You can also manually re-check the sequence from the Dance Editor
+      by right-clicking on the sequence and selecting the appropriate menu choice.&nbsp;
+      See below for details.</li></ul>
+    <p>
+        The Level column identifies the declared level of each Sequence.</p>
+    <p>
+        The Date Created column reports the original creation date of a given sequence.</p>
+    <p>
+        The Comment column is the value of the comment field for each sequence.</p>
+    <p>
+        At the bottom of the list of sequences is the phrase "Add another sequence...".&nbsp;
+        If you click there, a new sequence will be created and added to the end of the list.</p>
+    <p>
+        Clicking the mouse on any sequence will open the sequence in a Sequence Editor in
+        the left-hand pane of the main window.</p>
+    <p>
+        Even though the changes you make to sequences are done in Sequence Editors on the
+        left-hand side of the main window, they are all part of the dance file represented
+        in the Dance Editor on the right-hand side of the window.&nbsp; As a result, when
+        you undo an edit, it will be the last edit regardless of which sequence within the
+        file you changed.&nbsp; Also, you save the dance file and that saves all changes
+        to all sequences at once for that file.</p>
+    <h4>
+        Context Menu Items</h4>
+    <p>
+        Right-clicking over any sequence will open a context menu for that sequence.</p>
+    <p>
+        The menu choices that are allowed for that sequence are offered.&nbsp; The following
+        is the list of all menu items that might appear:</p>
+    <ul>
+        <li>Edit this Sequence.&nbsp; This performs the same action that left-clicking on the
+            sequence would.&nbsp; It opens the sequence in a Sequence Editor.</li>
+        <li>Print this Sequence.&nbsp; This item will print the sequence.&nbsp; A printer dialog
+            box is brought up that specifies the printer to use and some basic printing parameters.&nbsp;
+            Note that the Page Range will show 'All' pages selected, but this has no effect.</li>
+        <li>Print Selected Sequences.&nbsp; This item will print all the checked sequences.&nbsp;
+            A printer dialog box is brought up that specifies the printer to use and some basic
+            printing parameters.&nbsp; Note that the Page Range will show 'All' pages selected,
+            but this has no effect.</li>
+        <li>Recheck this Sequence.&nbsp; This item is in Unchecked state.&nbsp; The calls will
+            be checked and the sequence's status will be updated.</li>
+        <li>Recheck all Sequences.&nbsp; Any sequences in this editor that are Unchecked are
+            rechecked.&nbsp; All of their status' will be updated.&nbsp; Currently, the performance
+            of this function is slow enough that this may take a few seconds on a slower machine
+            or for very large dance files (with a hundred or more sequences).</li>
+    </ul>
+    <p>
+    </p>
+    <p>
+        &nbsp;</p>
+</BODY>
+</HTML>

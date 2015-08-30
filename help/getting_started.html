@@ -1,0 +1,192 @@
+<html>
+<head>
+<link rel="stylesheet" href="sim.css" type="text/css">
+<TITLE>Sets in Motion: Getting Started</TITLE>
+</head>
+<body>
+<h1>Getting Started</h1>
+<p>
+<i>Sets in Motion</i> runs under the Windows operating system.&nbsp; It reads and writes
+    several kinds of files, but is primarily limited to manipulating .CDF (Call Definitions)
+    and .DNC (Dance) files.&nbsp; These files are text files that you could view in
+    Notepad if you were so inclined, so that if they become corrupted it is possible
+    to manually repair damage to them.&nbsp; The information is coded, however, in such
+    a way that this wouldn't be a lot of fun.&nbsp; A .CDF file contains definitions
+    of calls, word synonyms, formations and other phrases that are used to interpret
+    and implement calls.&nbsp; <em>Sets in Motion</em> itself has almost no complete
+    call defined entirely in program code.&nbsp; Most calls are defined in terms of
+    other calls or basic functions called primitives that the program does directly
+    understand.&nbsp; 
+
+</p>
+    <p>
+        You don't need to know anything about how definitions are written
+    to get started using <em>Sets in Motion</em>.&nbsp; If you are interested in the definitions, look
+        in the <a href="definition_guide.html">Call Writer's Guide</a>.</p>
+    <p>
+        You will most likely be using DNC or Dance files.&nbsp; These usually consist exclusively
+        of sequences, although they can be expanded to include definition information when
+        necessary (see under <a href="export_dance_files.html">Exporting Dance Files</a>).&nbsp;
+        Sequences in a dance file can all be the same level or can be assigned different
+        levels depending on your preference.&nbsp; Most of the information in a sequence
+        is the list of calls.&nbsp; <em>Sets in Motion</em> records a creation date for
+        each sequence and tracks when you made the last change to a sequence.&nbsp; It also
+        allows you to include notes and comments that will be kept with the sequence and
+        shown or printed whenever you look at the sequence again.</p>
+    <p>
+        While you can select individual files from your disk or create new ones, the program
+        is set up to recognize three special files: default Definitions, My Definitions
+        and My Library.&nbsp; These will automatically be loaded whenever you start <em>Sets
+            in Motion</em>.&nbsp; My Definitions and My Library are both stored in a folder
+        under your personal Documents and Settings area, along with your preferences.&nbsp;
+        The default Definitions are fetched from where you ran the program and are shared
+        by all users that use the same installation of the program.</p>
+    <p>
+        While there is nothing to prevent you from changing definitions in the default file,
+        those changes will be overwritten the next time you update the program, so use your
+        judgement before doing so.&nbsp; It is generally better, if you want to replace
+        the default definition of a call, to simply write your replacement in My Definitions.&nbsp;
+        Any call defined in My Definitions will take precedence over calls in the default
+        Definitions even if they use the same words in the call.&nbsp; Moreover, this replcacement
+        happens even when the call is referred to from within another definition, even one
+        in the default Definitions.&nbsp; That way, if you decide that you don't want to
+        use the default Definition for a call in some future release, you can easily keep
+        the one in My Definitions as long as you want.</p>
+    <p>
+        My Library is a dance file that is intended to hold all of your material, if you
+        so wish.&nbsp; Currently, <em>Sets in Motion</em> gives you the ability to browse
+        through the list of sequences, but in the future you will have more capabilities
+        to search and organize your sequences.</p>
+    <h2>
+    </h2>
+    <h2>
+        Editing</h2>
+    <p>
+        Once you have a definition or sequence loaded into an edit window, you may edit
+        the entries more or less in any order you like.&nbsp; You can use the Tab key to
+        move around from field to field or you may click in an editable field with the mouse.&nbsp;
+    </p>
+    <p>
+        You can generally cut/copy and paste text between this program and other Windows
+        applications just as you would with any other.&nbsp; Text fields can be selected
+        using your mouse and keyboard as you might expect.</p>
+    <p>
+        <em>Sets in Motion</em> also supports full Undo for edit operations.&nbsp; From
+        any edit field you can type ctrl-Z to undo the last change or ctrl-Y to redo a change
+        you just undid.&nbsp; All changes from the moment you started the program are retained,
+        even after you have saved a file.&nbsp; If you undo changes past the last save point,
+        the program will consider your file as different from the on-disk copy and you will
+        be prompted to save if you leave <em>Sets in Motion</em> without saving first.&nbsp;
+        Note that if you make a bunch of changes and then undo them all, the file will revert
+        to 'unchanged' state and you won't be prompted to save it on exit.</p>
+    <p>
+        Each file has a separate undo history.&nbsp; So, for example, you may undo a change
+        to a sequence in My Library and that will have no effect on edits to a definition you made in
+        My Definitions.</p>
+<h2>
+    Performing</h2>
+    <p>
+        <em>Sets in Motion</em> has a very simple mechanism for performing sequences during
+        a dance.&nbsp; You will need separate software to run your music and time the tip.&nbsp;
+        This program will only give you a window showing the current sequence and includes
+        the ability to read the sequence or move to the next sequence or re-start the current
+        one, amongst a few other functions.&nbsp; In the future you will have more flexibility
+        in managing a performance and analyzing the results.</p>
+    <p>
+        Currently, you start a performance by selecting one or more sequences in a Dance
+        file (including My Library, of course) and then click on the right mouse button
+        to bring up the context menu in the <a href="user_dance.html">Dance Editor</a> and
+        select the option to Perform the select sequences.</p>
+    <h2>
+        The Main Window</h2>
+<p>
+When you launch <i>Sets in Motion</i> the program brings up an initial screen 
+that looks something like the illustration on the right.
+<img align=right src="start_screen.PNG" />A vertical line separates the window into
+    two parts.&nbsp; The left-hand pane will contain the contents of definitions files,
+    as well as the area where you can read and edit sequences.&nbsp; The right-hand
+    pane will contain lists of sequences as well as the animation and drill-down analysis
+    screens for an individual call plus the preferences you assign that are global to
+    the whole program.</p>
+    <p>
+        The program uses a tabbed interface to allow you to conveniently navigate among
+        the various sub-windows of the program.&nbsp; Across the top of the main program
+        window you will see tabs with labels like "Definitions" or "My Library".&nbsp; You
+        can bring these sub-windows to the forreground by simply clicking on those tabs
+        with your mouse.</p>
+    <p>
+        You can adjust the spacing between the left and right panes by simply dragging the
+        separator bar to where you want it.&nbsp; Do this by moving the mouse cursor over
+        the separator bar.&nbsp; You will see the mouse cursor change shape to a double-headed
+        horizontal arrow.&nbsp; That indicates that you are over the separator bar.&nbsp;
+        When you see the arrow-headed cursor press and hold down the left mouse button and
+        then move the mouse. &nbsp;You will see the separator bar move with the mouse until
+        you let up the mouse button.</p>
+    <p>
+        Until you move the separator bar, you will notice that it will automatically change
+        position as you resize the whole program window.&nbsp; The program is set up to
+        put the bar one third of the way from the left side of the program window.&nbsp;
+        Once you move the separator bar yourself, however, it will stay at the same distance
+        from the left edge of the window where you last set it.</p>
+    <p>
+        In the upper right corner of the main window you will see a single button.&nbsp;
+        This is the "More" button.<img align=left src="more_button2.png" />
+        &nbsp; If you click that button, the program will pop
+        up a menu of additional choices, such as opening an existing dance file or creating
+        a new one. &nbsp;In the future other functions will be added to this menu.
+        </p>
+    <p>
+        Normally the tabs at the tops of windows will be colored white.&nbsp; If however,
+        the tab corresponds to some file it will change to tan to indicate that the file
+        needs to be saved (usually because you have changed or added some data in that file).&nbsp;
+        If you try to close the program when there are unsaved files, you will be prompted
+        to save or discard the changes.</p>
+    <p>
+        Across the very bottom of the screen is a status area where messages may be displayed
+        to let you know something about what just happened or why something you tried to
+        do didn't work.</p>
+    <h2>
+        Viewing Animations</h2>
+    <p>
+        When you have a dance file loaded in the right pane of the main window, if you click
+        on any sequence, that will open a sequence editor window in the left pane.&nbsp;
+        If you then click on any of the calls in the sequence (including the 'home' marker
+        at the top of each sequence) this will bring up the animator window in the right-hand
+        pane, showing the dancers as they would be after completing the call you just clicked
+        on.</p>
+    <p>
+        You can press the Play button on the animation window to then start animating the
+        remainder of the sequence.&nbsp; For more details on using the animator window see
+        <a href="animator.html">Animations</a>.</p>
+    <h2>
+        Call Analysis</h2>
+    <p>
+        To the left of each call in a sequence you will see a small button with a question
+        mark on it.&nbsp; This is a 'drill-down' button.&nbsp; If you click this button
+        it will bring up a Call Analysis window in the right-hand pane of the main program
+        window.&nbsp; This view will break the call down into its individual parts, showing
+        you before and after diagrams of each stage of the execution.&nbsp; You will see
+        further drill-down buttons and they will take you further into the details of the
+        call.</p>
+    <p>
+        The Call Analysis window behaves much like a browser.&nbsp; There are forward and
+        back buttons at the top of the window to let you navigate back to the previous screen
+        you were in before you pressed the last drill-down button, or forward again as you
+        like.</p>
+    <p>
+        For more details on how to interpret the contents of the Call Analysis window see
+        <a href="call_analysis.html">Call Analysis</a>.</p>
+    <h2>
+        Right Mouse Button</h2>
+    <p>
+        Pressing or clicking the right mouse button will bring up a context menu over some
+        items in some windows.&nbsp; These special menus offer you options specific to the
+        item your mouse cursor is over.&nbsp; Experiment to see what options you have.&nbsp;
+        Opening one of the menus and clicking outside the menu will dismiss it without making
+        any changes, so it is pretty safe to poke around.</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+</body>
+</html>

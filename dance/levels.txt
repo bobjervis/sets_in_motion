@@ -1,0 +1,14 @@
+None			// Notation for non-list calls ilke 'face in'
+Basic
+Mainstream
+Plus
+Advanced-1
+Advanced-2
+Challenge-1
+Challenge-2
+Challenge-3A
+Challenge-3		// Levels here on down are not recognized by Callerlab.  This follows the SD nomenclature
+Challenge-3X
+Challenge-4A
+Challenge-4
+Challenge-4X
